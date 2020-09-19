@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1600541501 source:c:\users\sammy\onedrive\desktop\projects\bank_system\main.c
+1600560612 source:c:\users\sammy\onedrive\desktop\projects\bank_system\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Bank_Func_Proto.h"
 
-1600541501 c:\users\sammy\onedrive\desktop\projects\bank_system\bank_func_proto.h
+1600560612 c:\users\sammy\onedrive\desktop\projects\bank_system\bank_func_proto.h
 
-1600549917 source:c:\users\sammy\onedrive\desktop\projects\bank_system\bank_func.c
+1600560612 source:c:\users\sammy\onedrive\desktop\projects\bank_system\bank_func.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>

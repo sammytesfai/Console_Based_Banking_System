@@ -203,3 +203,67 @@ void Delete_Member(struct Members **front, struct Members **back)
         }
     }
 }
+
+void Budget(struct Members **front, struct Members **back)
+{
+    double monthly_income = 0;
+    double monthly_costs = 0;
+    struct Members *current_f = *front;
+    struct Members *current_b = *back;
+    struct Members *member = Look_up(current_f, current_b);
+    printf("What is the members total monthly costs: ");
+    scanf("%lf", &monthly_costs);
+    printf("What is the members monthly income: ");
+    scanf("%lf", &monthly_income);
+    if(monthly_costs > monthly_income)
+    {
+        printf("\nMembers monthly income can not support monthly expenses.\n\n");
+        return;
+    }
+    printf("\nThe recommended monthly budget for personal expenses would be: $%.2f\n", (monthly_income-monthly_costs)*.25);
+    printf("12 month saving account projections would be: $%.2f\n\n", member->savings + (12*((monthly_income - monthly_costs)*.75)));
+}
+
+void Transfer(struct Members **front, struct Members **back)
+{
+    int oper = 2;
+    double transfer_amount = 0;
+    struct Members *current_f = *front;
+    struct Members *current_b = *back;
+    printf("\nTransferring Member:\n");
+    struct Members *member = Look_up(current_f, current_b);
+    if(member == NULL)
+    {
+        printf("\n\nCould not find member.\n\n");
+        return;
+    }
+    printf("\n\nReceiving Member\n");
+    struct Members *r_member = Look_up(current_f, current_b);
+    if(r_member == NULL)
+    {
+        printf("\n\nCould not find member.\n\n");
+        return;
+    }
+    printf("How much would you like to transfer: ");
+    scanf("%lf", &transfer_amount);
+    while(oper != 0 || oper != 1)
+    {
+        printf("Enter 0 to transfer from checking or 1 for savings: ");
+        scanf("%d", &oper);
+        if(oper == 0 && member->checking >= transfer_amount)
+        {
+            member->checking -= transfer_amount;
+            r_member->checking += transfer_amount;
+            printf("\n\n----Transfer Complete----\n\n");
+            return;
+        }
+        else if(oper == 1 && member->savings >= transfer_amount)
+        {
+            member->savings -= transfer_amount;
+            r_member->savings += transfer_amount;
+            printf("\n\n----Transfer Complete----\n\n");
+            return;
+        }
+        printf("\n\nIncorrect input operation\n\n");
+    }
+}

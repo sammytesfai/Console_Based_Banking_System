@@ -35,6 +35,7 @@ int main()
         {
             case 1:
                 New_Member(&front, &back);
+                Display_Client(front);
                 break;
             case 2:
                 Display_Client(front);
@@ -58,6 +59,10 @@ int main()
                 Delete_Member(&front, &back);
                 break;
             case 6:
+                Budget(&front, &back);
+                break;
+            case 7:
+                Transfer(&front, &back);
                 break;
         }
 

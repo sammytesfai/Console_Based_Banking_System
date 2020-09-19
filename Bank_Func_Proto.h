@@ -30,4 +30,8 @@ struct Members *Look_up(struct Members *current_f, struct Members *current_b);
 
 void Delete_Member(struct Members **front, struct Members **back);
 
+void Budget(struct Members **front, struct Members **back);
+
+void Transfer(struct Members **front, struct Members **back);
+
 #endif // BANK_FUNC_PROTO_H_INCLUDED
